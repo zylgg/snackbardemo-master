@@ -9,6 +9,7 @@ import android.support.annotation.StringRes;
 import android.view.Gravity;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 
@@ -39,6 +40,7 @@ public class MySnackbarUtils {
     public void show() {
         if (mySnackbarView != null) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+
             WindowManager.LayoutParams params = new WindowManager.LayoutParams();
             //初始化后不首先获得窗口焦点。不妨碍设备上其他部件的点击、触摸事件。
             params.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
@@ -52,10 +54,10 @@ public class MySnackbarUtils {
             params.x = 0;
 
             final ViewGroup decorView = (ViewGroup) context.getWindow().getDecorView();
-            final ViewGroup content = (ViewGroup) decorView.findViewById(android.R.id.content);
+            final FrameLayout content = (FrameLayout) decorView.findViewById(android.R.id.content);
             if (mySnackbarView.getParent() == null) {
                 if (mySnackbarView.getLayoutGravity() == Gravity.BOTTOM) {
-                    content.addView(mySnackbarView, layoutParams);
+                    content.addView(mySnackbarView,layoutParams);
                 } else {
                     if (isCoverStatusBar) {
                         windowManager.addView(mySnackbarView, params);
