@@ -38,7 +38,7 @@ public class MySnackbarUtils {
 
     public void show() {
         if (mySnackbarView != null) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
             WindowManager.LayoutParams params = new WindowManager.LayoutParams();
             //初始化后不首先获得窗口焦点。不妨碍设备上其他部件的点击、触摸事件。
             params.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;

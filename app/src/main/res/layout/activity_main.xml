@@ -9,13 +9,11 @@
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="73dp"
+        android:layout_height="81dp"
         android:fitsSystemWindows="true"
         android:background="@drawable/bg"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:title="仿QQ的Toast"
-        >
-    </android.support.v7.widget.Toolbar>
+        app:title="仿QQ的Toast"/>
 
     <Button
         android:id="@+id/bt_hello"
