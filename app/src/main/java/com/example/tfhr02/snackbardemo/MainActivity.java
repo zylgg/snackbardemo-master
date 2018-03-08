@@ -8,34 +8,41 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    Button bt_hello, bt_hello2;
+    Button bt_hello, bt_hello2, bt_hello3;
     Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        toolbar= (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         bt_hello = (Button) findViewById(R.id.bt_hello);
         bt_hello2 = (Button) findViewById(R.id.bt_hello2);
+        bt_hello3 = (Button) findViewById(R.id.bt_hello3);
         bt_hello.setOnClickListener(this);
         bt_hello2.setOnClickListener(this);
+        bt_hello3.setOnClickListener(this);
     }
 
-    int count=0;
+    int count = 0, count2 = 0;
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.bt_hello:
                 String title = bt_hello.getText().toString();
-                new MySnackbarUtils.Builder(this).setCoverStatusBar(true).setTitle(title+""+(count++)+"").show();
+                new MySnackbarUtils.Builder(this).setCoverStatusBar(true).setTitle(title + "" + (count++) + "").show();
                 break;
             case R.id.bt_hello2:
                 String title2 = bt_hello2.getText().toString();
-                Toast.makeText(this, title2, Toast.LENGTH_SHORT).show();
+                new MySnackbarUtils.Builder(this).setCoverStatusBar(false).setTitle(title2 + "" + (count2++) + "").show();
+                break;
+            case R.id.bt_hello3:
+                String title3 = bt_hello3.getText().toString();
+                Toast.makeText(this, title3, Toast.LENGTH_SHORT).show();
                 break;
         }
 

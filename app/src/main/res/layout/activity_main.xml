@@ -13,7 +13,7 @@
         android:fitsSystemWindows="true"
         android:background="@drawable/bg"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:title="我的大标题"
+        app:title="仿QQ的Toast"
         >
     </android.support.v7.widget.Toolbar>
 
@@ -22,9 +22,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbar"
-        android:text="打开自定义的" />
+        android:text="覆盖状态栏" />
     <Button
         android:id="@+id/bt_hello2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bt_hello"
+        android:text="浸入状态栏" />
+    <Button
+        android:id="@+id/bt_hello3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
