@@ -49,7 +49,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.bt_toast:
                 String toast = bt_toast.getText().toString();
-                Toast.makeText(this, toast, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, toast, Toast.LENGTH_SHORT).show();
+                MyToast.makeText(this,toast,MyToast.LENGTH_LONG).show();
                 break;
         }
 

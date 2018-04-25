@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/bt_hello2"
-        android:visibility="invisible"
+        android:visibility="visible"
         android:text="在底部打开" />
     <Button
         android:id="@+id/bt_toast"

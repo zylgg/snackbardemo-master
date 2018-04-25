@@ -6,6 +6,7 @@ import android.graphics.PixelFormat;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -54,10 +55,12 @@ public class MySnackbarUtils {
             params.x = 0;
 
             final ViewGroup decorView = (ViewGroup) context.getWindow().getDecorView();
-            final FrameLayout content = (FrameLayout) decorView.findViewById(android.R.id.content);
+//            final FrameLayout content = (FrameLayout) decorView.findViewById(android.R.id.content);
             if (mySnackbarView.getParent() == null) {
                 if (mySnackbarView.getLayoutGravity() == Gravity.BOTTOM) {
-                    content.addView(mySnackbarView,layoutParams);
+                    mySnackbarView.measure(0,0);
+                    layoutParams.topMargin=DisplayUtil.Height(context)-mySnackbarView.getMeasuredHeight();
+                    decorView.addView(mySnackbarView,layoutParams);
                 } else {
                     if (isCoverStatusBar) {
                         windowManager.addView(mySnackbarView, params);
