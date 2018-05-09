@@ -73,6 +73,7 @@ public class MySnackbar extends LinearLayout {
 
         inflate(getContext(), R.layout.layout_cookie, this);
         contentview = findViewById(R.id.cookie);
+        contentview.getLayoutParams().width=context.getResources().getDisplayMetrics().widthPixels;
         viewDragHelper = ViewDragHelper.create(this, dragCallback);
         detectorCompat = new GestureDetectorCompat(getContext(), onGestureListener);
 

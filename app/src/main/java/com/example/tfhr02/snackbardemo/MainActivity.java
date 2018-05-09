@@ -1,14 +1,17 @@
 package com.example.tfhr02.snackbardemo;
 
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    private static final String TAG = "MainActivity";
     Button bt_hello, bt_hello2, bt_hello3, bt_toast;
     Toolbar toolbar;
 
@@ -19,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getWindow().setFlags();
 
         bt_hello = (Button) findViewById(R.id.bt_hello);
         bt_hello2 = (Button) findViewById(R.id.bt_hello2);
@@ -31,13 +35,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     int count = 0, count2 = 0, count3 = 0;
-
+    Toast mShowingToast;
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.bt_hello:
                 String title = bt_hello.getText().toString();
-                new MySnackbarUtils.Builder(this).setCoverStatusBar(true).setTitle(title + "" + (count++) + "").show();
+                 new MySnackbarUtils.Builder(this).setCoverStatusBar(true).setTitle(title + "" + (count++) + "").show();
                 break;
             case R.id.bt_hello2:
                 String title2 = bt_hello2.getText().toString();
@@ -49,8 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.bt_toast:
                 String toast = bt_toast.getText().toString();
-//                Toast.makeText(this, toast, Toast.LENGTH_SHORT).show();
-                MyToast.makeText(this,toast,MyToast.LENGTH_LONG).show();
+                Toast.makeText(this,toast,Toast.LENGTH_LONG).show();
                 break;
         }
 
